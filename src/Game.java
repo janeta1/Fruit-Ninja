@@ -5,7 +5,7 @@ import java.lang.Math;
 import fruitNinjaHelper.Constants;
 
 public class Game extends cs3331FruitNinjaGame {
-    Objects myObject;
+    Choppable myObject;
     cs3331Blade myBlade;
     cs3331ScoreController score;
     int indScore = 0;
@@ -15,22 +15,21 @@ public class Game extends cs3331FruitNinjaGame {
         this.score = score;
         myBlade = new cs3331Blade("myBlade");
         this.addBlade(myBlade);
+        
     }
 
-    public void updateChoppable(Objects object) {
+    public void updateChoppable(Choppable object) {
 
-        // Your code goes here
-        // object = launchItem();
-        object.moveObject();
+        object.moveChoppableObject();
         if(myBlade.checkIntersection(object)) {
-            object.chopObject();
+            object.chopChoppableObject();
             score.addToScore(indScore);
         }
 
     }
 
     @Override
-    public Objects launchItem() {
+    public Choppable launchItem() {
         int rand = (int) (Math.random() * 5) + 1;
 
         switch (rand) {

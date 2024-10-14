@@ -1,6 +1,6 @@
 import fruitNinjaHelper.cs3331Fruit;
 
-public class Fruits extends cs3331Fruit implements Objects{
+public class Fruits extends cs3331Fruit implements Choppable{
 
     public Fruits(String url) {
         this.setImage(url);
@@ -9,14 +9,14 @@ public class Fruits extends cs3331Fruit implements Objects{
     }
 
     @Override
-    public void moveObject() {
+    public void moveChoppableObject() {
         super.moveFruit();
     }
 
     @Override
-    public void chopObject() {
+    public void chopChoppableObject() {
         super.chopGraphically();
-        splash();
+        super.splash();
     }
 
 }
